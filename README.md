@@ -1,53 +1,132 @@
-DApp README
+README for Payment Manager Dapp
 
-Introduction
-Welcome to the Metacrafters ATM decentralized application (DApp)!
 
-This DApp allows users to send messages on the Ethereum blockchain using a smart contract. Users can connect their MetaMask wallet to interact with the DApp and send messages.
+Overview
 
-Getting Started
-To run this DApp locally, follow these steps:
 
-Clone the repository:
+The Payment Manager Dapp is a decentralized application for managing and processing restaurant bills using Ethereum smart contracts. This React-based application interacts with an Ethereum smart contract to allow users to generate, pay, and check the status of bills.
+
+Features
+
+
+Connect MetaMask Wallet: Connects to the Ethereum wallet to interact with the smart contract.
+
+
+Generate Bill: Allows users to generate a bill with a specified amount and tip.
+
+
+Pay Bill: Enables users to pay a specific bill by providing the bill ID and amount.
+
+
+Check Bill Status: Provides the current status of a bill (paid or pending).
+
+
+Setup
+
+
+Prerequisites
+
+
+MetaMask: Ensure MetaMask is installed in your browser.
+
+
+Node.js: Ensure you have Node.js installed.
+
+
+Installation
+
+
+Clone the Repository
 
 bash
 Copy code
 git clone <repository-url>
-Install dependencies:
+cd <repository-directory>
+Install Dependencies
 
-Copy code
+
 npm install
-Run the DApp:
 
-sql
-Copy code
+
+Start the Application
+
+
 npm start
-Make sure you have MetaMask installed in your browser.
 
-Connect your MetaMask wallet to the DApp by clicking on the "Connect Metamask Wallet" button.
 
-Interact with the DApp by setting messages, getting the last message sent, and getting the sender of the last message.
+Configuration
 
-Functionality
-Setting a Favourite Drink
-Enter a message in the input field under the "Set Favourite Drink" section.
-Click on the "Set Favourite Drink" button.
-Your message will be sent to the blockchain.
-Getting the Favourite Drink
-Click on the "Get Favourite Drink" button under the "Get Favourite Drink" section.
-The last Favourite Drink sent on the blockchain will be displayed.
-Getting the Last Sender
-Click on the "Get Last Sender" button under the "Get Last Sender" section.
-The address of the sender who sent the last message will be displayed.
-Resetting Messages
-Click on the "Reset" button under the "Reset" section to clear the last message and last sender.
-Smart Contract
-The smart contract MessageContract.sol deployed on the Localhost blockchain facilitates message sending and retrieval.
 
-Technologies Used
-React.js for the front-end development.
-Solidity for smart contract development.
-MetaMask for wallet interaction.
-ethers.js for Ethereum interaction.
-License
-This DApp is licensed under the MIT License.
+Contract Address: Update the contractAddress variable in the HomePage component with the deployed contract address.
+
+
+Contract ABI: Ensure the ABI file (PaymentManager.json) is correctly placed in the artifacts/contracts/Assessment.sol directory.
+
+
+Usage
+
+
+Connect Wallet:
+
+
+Click the "Connect MetaMask Wallet" button to connect your Ethereum wallet.
+
+
+Generate Bill:
+
+
+Enter the bill amount and tip.
+
+
+Click the "Generate" button to create a new bill. The resulting bill amount and ID will be displayed.
+
+
+Pay Bill:
+
+
+Enter the bill ID and the amount to pay.
+
+
+Click the "Pay" button to complete the payment. The payment status will be shown.
+
+
+Check Bill Status:
+
+
+Enter the bill ID.
+
+
+Click the "Get Bill Status" button to check if the bill has been paid or is still pending.
+
+
+Code Overview
+
+
+HomePage Component: Handles wallet connection, contract interaction, and state management for bill generation, payment, and status checking.
+
+
+getWallet: Retrieves the MetaMask wallet.
+
+
+connectAccount: Connects to MetaMask and initializes the smart contract.
+
+
+handleGenerateBill: Generates a new bill with the specified amount and tip.
+
+
+handlePayBill: Pays a specified bill and updates the payment status.
+
+
+gettingBillStats: Retrieves the status of a specific bill.
+
+
+Styling
+
+
+The application uses inline CSS styles for layout and design, including button styles, input fields, and message displays.
+
+
+Error Handling
+
+
+Errors during contract interaction are logged to the console and displayed in the user interface as messages.
